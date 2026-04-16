@@ -37,13 +37,30 @@ h1 ping -b 10.0.0.255 -i 0.01
 
 ## Output
 Broadcast traffic detected and controlled successfully.
-## Pingall Output
+# SDN Broadcast Control
 
-![Ping](pingall.png)
+This project implements broadcast traffic control using SDN.
 
-## Broadcast Traffic
+## Features
 
-![Broadcast](broadcast.png)
+- Broadcast detection
+- Broadcast control
+- MAC learning
+- Flow rule installation
+
+## Topology
+
+4 Hosts
+2 Switches
+
+## Output
+
+Screenshots below
+<img width="852" height="471" alt="image" src="https://github.com/user-attachments/assets/46e66ffe-c1ac-4659-ae31-035e749408b1" />
+<img width="891" height="159" alt="image" src="https://github.com/user-attachments/assets/8c46b037-5c86-43f7-8e4a-416abe58c814" />
+<img width="808" height="61" alt="image" src="https://github.com/user-attachments/assets/b6ea4a2b-e802-4991-b2e5-400ad3e5986a" />
+
+
 
 ## Author
 Vijeta Madiwalar
