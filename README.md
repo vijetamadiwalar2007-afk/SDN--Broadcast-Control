@@ -37,6 +37,13 @@ h1 ping -b 10.0.0.255 -i 0.01
 
 ## Output
 Broadcast traffic detected and controlled successfully.
+## Pingall Output
+
+![Ping](pingall.png)
+
+## Broadcast Traffic
+
+![Broadcast](broadcast.png)
 
 ## Author
 Vijeta Madiwalar
