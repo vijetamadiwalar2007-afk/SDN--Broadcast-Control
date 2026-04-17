@@ -1,61 +1,247 @@
-# Broadcast Traffic Control using POX SDN
+# SDN Broadcast Traffic Control using POX
 
-## Project Description
-This project implements Broadcast Traffic Control using POX SDN Controller. 
-The controller detects broadcast traffic, limits excessive broadcast, performs MAC learning and installs flow rules.
+Course: Computer Networks
+Student Name: VIJETA MADIWALAR
+Controller: POX (OpenFlow v1.0)
+Topology: Multi‑Switch, 4 Hosts
 
-## Tools Used
-- POX Controller
-- Mininet
-- OpenFlow
-- Ubuntu Virtual Machine
+---
 
-## Network Topology
-- 2 Switches (s1, s2)
-- 4 Hosts (h1, h2, h3, h4)
+# Problem Statement
 
-## Features
-- Broadcast Detection
-- Broadcast Traffic Control
-- MAC Learning
-- Flow Rule Installation
-- Selective Forwarding
+This project implements an SDN‑based Broadcast Traffic Control system using Mininet and the POX OpenFlow controller. The controller detects excessive broadcast traffic and prevents broadcast storms by dynamically installing flow rules.
 
-## How to Run
+The project demonstrates:
 
-### Start Controller
+• Controller–Switch interaction using OpenFlow
+• Broadcast traffic detection
+• Broadcast storm prevention
+• MAC learning and selective forwarding
+• Flow rule installation
+
+---
+
+# SDN Behaviors Demonstrated
+
+| Behavior             | Description                           |
+| -------------------- | ------------------------------------- |
+| Broadcast Detection  | Detects broadcast packets in network  |
+| Broadcast Control    | Limits excessive broadcast traffic    |
+| MAC Learning         | Learns host MAC addresses dynamically |
+| Selective Forwarding | Sends packets only to required ports  |
+| Flow Installation    | Controller installs rules dynamically |
+
+---
+
+# Network Topology
+
+h1 ---- s1 ---- s2 ---- h3
+|        |
+h2       h4
+
+## Topology Explanation
+
+• 4 Hosts (h1, h2, h3, h4)
+• 2 Switches (s1, s2)
+• Remote POX Controller
+• Switches connected to controller
+• Broadcast traffic monitored centrally
+
+---
+
+# Behavior Evaluation
+
+Broadcast traffic is generated using broadcast ping.
+
+The controller:
+
+• Detects broadcast packets
+• Counts broadcast traffic
+• Blocks excessive broadcast
+• Installs flow rules
+
+This prevents broadcast storm and improves network performance.
+
+---
+
+# Controller Logic
+
+The controller listens for PacketIn events from switches.
+
+When packet arrives:
+
+1. Controller learns MAC address
+2. Detects broadcast packet
+3. Checks broadcast frequency
+4. Applies control rule
+
+Logic implemented:
+
+If Broadcast Traffic > Limit
+→ Block Broadcast
+
+Otherwise
+→ Selective Forwarding
+
+---
+
+# Match–Action Mechanism
+
+Match Conditions:
+
+• Broadcast MAC address
+• Source MAC address
+• Destination MAC address
+
+Actions:
+
+• Drop packet
+• Forward packet
+• Install flow rule
+
+---
+
+# Flow Rules
+
+Broadcast Rule
+
+Match: Broadcast Traffic
+Action: Limit / Block
+
+MAC Learning Rule
+
+Match: Known Destination
+Action: Forward to specific port
+
+Default Rule
+
+Unknown traffic forwarded to controller
+
+---
+
+# Setup & Installation
+
+## Step 1 — Install Dependencies
+
+sudo apt update
+sudo apt install git python3‑pip mininet openvswitch‑switch -y
+
+---
+
+## Step 2 — Clone POX
+
+cd ~
+git clone [https://github.com/noxrepo/pox.git](https://github.com/noxrepo/pox.git)
+
+---
+
+# How to Run
+
+## Terminal 1 — Start Controller
+
 cd ~/pox
 python3 pox.py log.level --DEBUG misc.pox_broadcast_controller
 
-### Start Mininet
-cd ~/broadcast-pox
+---
+
+## Terminal 2 — Start Mininet
+
+cd ~/broadcast‑pox
 sudo python3 custom_topo.py
 
-### Test
+---
+
+# Test Scenarios
+
+## Scenario 1 — Basic Connectivity
+
 pingall
+
+Expected:
+
+0% Packet loss
+
+---
+
+## Scenario 2 — Broadcast Traffic
+
+h1 ping -b 10.0.0.255
+
+Expected:
+
+Broadcast detected
+
+---
+
+## Scenario 3 — Broadcast Storm
+
 h1 ping -b 10.0.0.255 -i 0.01
 
-## Output
-Broadcast traffic detected and controlled successfully.
-# SDN Broadcast Control
+Expected:
 
-This project implements broadcast traffic control using SDN.
+Controller blocks broadcast traffic
 
-## Features
+---
 
-- Broadcast detection
-- Broadcast control
-- MAC learning
-- Flow rule installation
+# Performance Analysis
 
-## Topology
+Broadcast Control: Successful
+Packet Loss (Broadcast): Controlled
+Latency: Low
 
-4 Hosts
-2 Switches
+---
 
-## Output
+# Proof of Execution
 
-Screenshots below
+Screenshots folder contains:
+
+• Controller Output
+• Ping Results
+• Broadcast Detection
+• Flow Installation
+
+---
+
+# Repository Structure
+
+broadcast‑pox/
+├── custom_topo.py
+├── pox_broadcast_controller.py
+├── README.md
+└── screenshots/
+
+---
+
+# Validation
+
+• Broadcast detected correctly
+• Controller installed rules
+• Network performance improved
+• Packet forwarding working
+
+---
+
+# Conclusion
+
+This project demonstrates Broadcast Traffic Control using SDN and POX controller.
+Broadcast storms are detected and controlled using centralized SDN logic.
+The controller dynamically installs flow rules to manage network traffic.
+
+---
+
+# About
+
+SDN Broadcast Traffic Control Project using Mininet and POX Controller.
+
+---
+
+# Languages
+
+Python — 100%
+
+---
+
+#Output Screenshoots
 
 
 
@@ -65,5 +251,3 @@ Screenshots below
 
 
 
-## Author
-Vijeta Madiwalar
