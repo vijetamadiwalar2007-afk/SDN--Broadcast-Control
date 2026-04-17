@@ -120,6 +120,11 @@ Default Rule
 
 Unknown traffic forwarded to controller
 
+
+
+<img width="1077" height="141" alt="Screenshot 2026-04-17 094434" src="https://github.com/user-attachments/assets/a0eb8eeb-be12-4c02-9bc1-923b02f628cb" />
+
+
 ---
 
 # Setup & Installation
@@ -255,5 +260,6 @@ Terminal -2
 
 <img width="808" height="61" alt="image" src="https://github.com/user-attachments/assets/b6ea4a2b-e802-4991-b2e5-400ad3e5986a" />
 
+<img width="1114" height="540" alt="Screenshot 2026-04-17 094404" src="https://github.com/user-attachments/assets/95def1be-78f0-4f9f-813c-717197eeaa15" />
 
 
