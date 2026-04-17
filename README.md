@@ -232,9 +232,7 @@ The controller dynamically installs flow rules to manage network traffic.
 
 ---
 
-# About
 
-SDN Broadcast Traffic Control Project using Mininet and POX Controller.
 
 ---
 
@@ -248,9 +246,11 @@ Python — 100%
 
 
 Terminal-1
+
 <img width="852" height="471" alt="image" src="https://github.com/user-attachments/assets/46e66ffe-c1ac-4659-ae31-035e749408b1" />
 
 Terminal -2
+
 <img width="891" height="159" alt="image" src="https://github.com/user-attachments/assets/8c46b037-5c86-43f7-8e4a-416abe58c814" />
 
 <img width="808" height="61" alt="image" src="https://github.com/user-attachments/assets/b6ea4a2b-e802-4991-b2e5-400ad3e5986a" />
