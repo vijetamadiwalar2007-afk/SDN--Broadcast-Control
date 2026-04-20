@@ -37,10 +37,12 @@ The project demonstrates:
 ---
 
 # Network Topology
+h1   h2
+ \   /
+   s1 ----- s2
+           /  \
+         h3    h4
 
-h1 ---- s1 ---- s2 ---- h3
-|        |
-h2       h4
 
 ## Topology Explanation
 
